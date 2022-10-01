@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hybrid_application/TabPages/navbar.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -135,7 +136,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 45,
                               child: ElevatedButton(
                                 onPressed: () {
-                                  //validateForm();
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (c) => NavPage()));
                                 },
                                 style: ButtonStyle(
                                     foregroundColor:

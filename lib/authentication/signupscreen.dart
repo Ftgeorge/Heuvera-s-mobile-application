@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../TabPages/navbar.dart';
+
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
@@ -170,7 +172,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               height: 45,
                               child: ElevatedButton(
                                 onPressed: () {
-                                  //validateForm();
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (c) => NavPage()));
                                 },
                                 style: ButtonStyle(
                                     foregroundColor:
