@@ -1,0 +1,65 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:hybrid_application/mainscreen/mainscreen.dart';
+import 'package:hybrid_application/splashscreen/splashscreen.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarIconBrightness: Brightness.dark,
+    statusBarColor: Colors.transparent,
+  ));
+
+  ErrorWidget.builder = (FlutterErrorDetails details) => const Scaffold(
+        body: Center(
+            child: Text("Something went wrong.",
+                style: TextStyle(color: Colors.red))),
+      );
+
+  runApp(
+    MyApp(
+      child: MaterialApp(
+        title: 'Swifttra Driver',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          fontFamily: 'Oxygen',
+        ),
+        home: const mainscreen(),
+        debugShowCheckedModeBanner: false,
+      ),
+    ),
+  );
+}
+
+class MyApp extends StatefulWidget {
+  final Widget? child;
+
+  // ignore: use_key_in_widget_constructors
+  const MyApp({this.child});
+
+  static void restartApp(BuildContext context) {
+    context.findAncestorStateOfType<_MyAppState>()!.restartApp();
+  }
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Key key = UniqueKey();
+
+  void restartApp() {
+    setState(() {
+      key = UniqueKey();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return KeyedSubtree(
+      key: key,
+      child: widget.child!,
+    );
+  }
+}
