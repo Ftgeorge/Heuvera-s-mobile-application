@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hybrid_application/TabPages/discover.dart';
 import 'package:hybrid_application/TabPages/home.dart';
+import 'package:hybrid_application/TabPages/marketplace.dart';
+import 'package:hybrid_application/TabPages/menu.dart';
 import 'package:hybrid_application/TabPages/notification.dart';
 
 class NavPage extends StatefulWidget {
@@ -34,9 +36,11 @@ class _NavPageState extends State<NavPage> with SingleTickerProviderStateMixin {
         controller: tabController,
         // ignore: prefer_const_literals_to_create_immutables
         children: [
-          const discover(),
+          const menu(),
+          const marketplace(),
           const homePage(),
           const notificationPage(),
+          const discover(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -50,8 +54,8 @@ class _NavPageState extends State<NavPage> with SingleTickerProviderStateMixin {
             label: "Marketplace",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.abc),
-            label: "home",
+            icon: ImageIcon(AssetImage("images/icon.jpg")),
+            label: "Home",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.battery_full_outlined),
