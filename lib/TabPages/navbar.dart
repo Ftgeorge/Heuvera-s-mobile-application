@@ -25,7 +25,7 @@ class _NavPageState extends State<NavPage> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
 
-    tabController = TabController(length: 3, vsync: this);
+    tabController = TabController(length: 5, vsync: this);
   }
 
   @override
@@ -40,7 +40,7 @@ class _NavPageState extends State<NavPage> with SingleTickerProviderStateMixin {
           const marketplace(),
           const homePage(),
           const notificationPage(),
-          const discover(),
+          discover(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -58,8 +58,8 @@ class _NavPageState extends State<NavPage> with SingleTickerProviderStateMixin {
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.battery_full_outlined),
-            label: "Notifications",
+            icon: Icon(Icons.chat_bubble),
+            label: "Inbox",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search_rounded),
