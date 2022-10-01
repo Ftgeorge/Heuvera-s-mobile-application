@@ -10,6 +10,9 @@ class marketplace extends StatefulWidget {
 class _marketplaceState extends State<marketplace> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Text("Your market place here"),
+    );
   }
 }

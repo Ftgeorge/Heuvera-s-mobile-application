@@ -10,6 +10,9 @@ class notificationPage extends StatefulWidget {
 class _notificationPageState extends State<notificationPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Text("Your notifications will appear here"),
+    );
   }
 }

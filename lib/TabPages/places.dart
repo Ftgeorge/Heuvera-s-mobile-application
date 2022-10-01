@@ -10,6 +10,9 @@ class places extends StatefulWidget {
 class _placesState extends State<places> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Text("Beautiful locations looking right at you"),
+    );
   }
 }

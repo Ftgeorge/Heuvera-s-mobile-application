@@ -10,6 +10,9 @@ class homePage extends StatefulWidget {
 class _homePageState extends State<homePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Text("Here are your choices due to your preference based on home"),
+    );
   }
 }

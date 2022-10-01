@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:hybrid_application/TabPages/Cityies.dart';
+import 'package:hybrid_application/TabPages/Home_section.dart';
+import 'package:hybrid_application/TabPages/apartment.dart';
 import 'package:hybrid_application/TabPages/discover.dart';
+import 'package:hybrid_application/TabPages/for_you.dart';
 import 'package:hybrid_application/TabPages/home.dart';
 import 'package:hybrid_application/TabPages/marketplace.dart';
 import 'package:hybrid_application/TabPages/menu.dart';
 import 'package:hybrid_application/TabPages/notification.dart';
 import 'package:hybrid_application/TabPages/places.dart';
-import 'package:hybrid_application/TabPages/states.dart';
 
 class discover extends StatefulWidget {
   @override
@@ -38,154 +39,63 @@ class _discoverState extends State<discover>
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          Container(
-            height: 155,
-            decoration: const BoxDecoration(
-              color: Colors.white,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                children: [
-                  const SizedBox(height: 70.0),
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.search_rounded,
-                        color: Colors.purpleAccent,
-                      ),
-                      const SizedBox(
-                        width: 2.0,
-                      ),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: TextField(
-                            // onChanged: (valueTyped) {
-                            //   findPlaceAutoCompleteSearch(valueTyped);
-                            // },
-                            decoration: InputDecoration(
-                              hintText: "Search Here",
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              fillColor: Color.fromARGB(255, 243, 243, 243),
-                              filled: true,
-                              contentPadding: const EdgeInsets.only(
-                                left: 11.0,
-                                top: 8.0,
-                                bottom: 8.0,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+          SizedBox(height: 40),
+          const Text(
+            "Discover",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+              fontFamily: 'Oxygen',
+              fontWeight: FontWeight.bold,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          SizedBox(
+            height: 2,
+          ),
+          const Text(
+            "Take a look and check what suites you the most",
+            style: TextStyle(
+              color: Colors.grey,
+              fontSize: 15,
+              fontFamily: 'Oxygen',
+            ),
+          ),
+          SizedBox(
+            height: 2,
+          ),
+          TabBarView(
+            physics: const NeverScrollableScrollPhysics(),
+            controller: tabController,
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              const For_you(),
+              const Homesection(),
+              const apartment(),
+              const places(),
+            ],
+          ),
+          Container(
+            decoration: BoxDecoration(color: Colors.grey),
             child: DefaultTabController(
-                length: 3,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                  ),
-                  child: TabBar(tabs: [
-                    Tab(
-                      text: "States",
-                    ),
-                    Tab(
-                      text: "Cities",
-                    ),
-                    Tab(
-                      text: "Cities",
-                    ),
-                  ]),
-                )),
-          )
+              length: 4,
+              child: TabBar(tabs: [
+                Tab(
+                  text: "FOR YOU",
+                ),
+                Tab(
+                  text: "HOMES",
+                ),
+                Tab(
+                  text: "APARTMENT",
+                ),
+                Tab(
+                  text: "PLACES",
+                ),
+              ]),
+            ),
+          ),
         ],
       ),
     );
-    // return DefaultTabController(
-    //   length: 3,
-    //   child: Scaffold(
-    //     body: Container(
-    //       height: 155,
-    //       decoration: const BoxDecoration(
-    //         color: Colors.white,
-    //       ),
-    //       child: Padding(
-    //         padding: const EdgeInsets.all(10.0),
-    //         child: Column(
-    //           children: [
-    //             const SizedBox(height: 5.0),
-    //             Row(
-    //               children: [
-    //                 const Icon(
-    //                   Icons.search_rounded,
-    //                   color: Colors.purpleAccent,
-    //                 ),
-    //                 const SizedBox(
-    //                   width: 2.0,
-    //                 ),
-    //                 Expanded(
-    //                   child: Padding(
-    //                     padding: const EdgeInsets.all(10.0),
-    //                     child: TextField(
-    //                       // onChanged: (valueTyped) {
-    //                       //   findPlaceAutoCompleteSearch(valueTyped);
-    //                       // },
-    //                       decoration: InputDecoration(
-    //                         hintText: "Search Here",
-    //                         focusedBorder: OutlineInputBorder(
-    //                           borderRadius: BorderRadius.circular(0),
-    //                           // borderSide: const BorderSide(
-    //                           //   width: 1,
-    //                           //   style: BorderStyle.none,
-    //                           //   //color: Colors.black,
-    //                           // ),
-    //                         ),
-    //                         enabledBorder: OutlineInputBorder(
-    //                             borderRadius: BorderRadius.circular(10)),
-    //                         fillColor: Color.fromARGB(255, 243, 243, 243),
-    //                         filled: true,
-    //                         contentPadding: const EdgeInsets.only(
-    //                           left: 11.0,
-    //                           top: 8.0,
-    //                           bottom: 8.0,
-    //                         ),
-    //                       ),
-    //                     ),
-    //                   ),
-    //                 ),
-    //               ],
-    //             ),
-    //           ],
-    //         ),
-    //       ),
-    //     ),
-    //     appBar: AppBar(
-    //       bottom: TabBar(
-    //         tabs: [
-    //           Tab(
-    //             text: "States",
-    //           ),
-    //           Tab(
-    //             text: "Cities",
-    //           ),
-    //           Tab(
-    //             text: "Places",
-    //           ),
-    //         ],
-    //       ),
-    //     ),
-    //   ),
-    // );
   }
 }

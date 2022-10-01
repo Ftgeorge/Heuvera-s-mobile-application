@@ -10,6 +10,9 @@ class menu extends StatefulWidget {
 class _menuState extends State<menu> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Text("Your options will be here"),
+    );
   }
 }
